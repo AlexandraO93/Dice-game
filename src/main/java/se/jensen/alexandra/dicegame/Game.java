@@ -38,7 +38,7 @@ public class Game {
             this.setupPlayer(player);                                                           //Antalet som registreras via loopen sparas i variabeln setupPlayer
         }
 
-        String choice = "";                                                                     //Skapar choice som en variabel - här sätts värdet play eller quit in
+        String choice;                                                                           //Skapar choice som en variabel - här sätts värdet play eller quit in
         while (true) {                                                                          //Satt till true för att loopen ska fortsätta köras tills vi väljer att avsluta
             System.out.println("\n" + "Write play or quit");
             choice = scanner.nextLine();                                                        //sparar inmatat värde från scanner till choice
