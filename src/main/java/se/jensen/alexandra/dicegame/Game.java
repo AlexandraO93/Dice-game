@@ -12,7 +12,7 @@ public class Game {
     int numDieThrow = 2;
 
     //Metod för en spelares runda
-    public void runTurn(int player) {
+    private void runTurn(int player) {
         Player currentPlayer = players.get(player);                                             //Från ArrayList plockar den 0 eller 1 (eftersom det är två spelare) och vet så vems tur det är
         System.out.println("\n" + currentPlayer.getFullName() + " - Press enter, to throw the dice"); //getFullName() plockas från Player via den publika metoden i klassen.
         scanner.nextLine();                                                                     //Inväntar att användaren trycker Enter, för att göra ett aktivt val att slå
@@ -23,7 +23,7 @@ public class Game {
     }
 
     //Inmatning och registrering av namn till spelare 1 och 2
-    public void setupPlayer(int player) {
+    private void setupPlayer(int player) {
         Player currentPlayer = players.get(player);                                             //Funkar på samma sätt som rad 16, hämtar 0 eller 1 från ArrayList
         System.out.println("********* Player " + (player + 1) + " *********" + "\n" +           //player +1 då spelare 1 har index 0
                 "Please, write your firstname");
@@ -59,7 +59,7 @@ public class Game {
     }
 
     //Avsluta spelet
-    public void quitGame() {
+    private void quitGame() {
         scanner.close();
         System.out.println("""
                 
@@ -68,7 +68,7 @@ public class Game {
     }
 
     //Utskrift av slutresultat
-    public void finalResults() {
+    private void finalResults() {
         Player playerOne = players.get(0);                                                             //Skapar variabler av de två spelarna, index 0 och 1
         Player playerTwo = players.get(1);                                                             //playerOne är kortare än att skriva ut players.get(0) hela tiden. Ger snyggare kod
         System.out.println("""
