@@ -61,15 +61,21 @@ public class Game {
     //Avsluta spelet
     public void quitGame() {
         scanner.close();
-        System.out.println("\n" + "Thanks for playing!" + "\n " + "    Goodbye!");
+        System.out.println("""
+                
+                Thanks for playing!
+                     Goodbye!""");
     }
 
     //Utskrift av slutresultat
     public void finalResults() {
         Player playerOne = players.get(0);                                                             //Skapar variabler av de två spelarna, index 0 och 1
         Player playerTwo = players.get(1);                                                             //playerOne är kortare än att skriva ut players.get(0) hela tiden. Ger snyggare kod
-        System.out.println("\n" + "***************************************************" + "\n" +
-                "And the final result is:" + "\n");
+        System.out.println("""
+                
+                ***************************************************
+                And the final result is:
+                """);
         System.out.println(playerOne.getFullName() + " got: " + playerOne.getScore());                 //Hämtar och konkatenerar sparat fullständigt namn och sparat score från Player objektet
         System.out.println(playerTwo.getFullName() + " got: " + playerTwo.getScore());
         if (playerOne.getScore() > playerTwo.getScore()) {                                             //Jämför högst poäng, skriver ut vem som vann eller ev oavgjort
