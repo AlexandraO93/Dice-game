@@ -21,7 +21,7 @@ public class Player {                       //Skapar klassen Player med attribut
             System.out.println("You need to enter a first name, try again");
             firstName = scanner.nextLine();                        //felmeddelande skrivs ut, och användaren får ny chans att skriva
         }
-        this.firstname = firstName;                               //om värde finns, uppdateras variabeln firstname till inmatat värde
+        firstname = firstName;                               //om värde finns, uppdateras variabeln firstname till inmatat värde
     }
 
     public void setLastname(Scanner scanner) {                    //upplagd på samma sätt som setFirstname
@@ -30,7 +30,7 @@ public class Player {                       //Skapar klassen Player med attribut
             System.out.println("You need to enter a last name, try again");
             lastName = scanner.nextLine();
         }
-        this.lastname = lastName;
+        lastname = lastName;
     }
 
     //Getters
@@ -44,11 +44,11 @@ public class Player {                       //Skapar klassen Player med attribut
 
     //Nollställ score
     public void resetScore() {                                 //När en spelomgång är avslutad återställs score värdet till 0
-        this.score = 0;                                        //för att kunna spela igen med samma spelare men nya tärningskast
+        score = 0;                                        //för att kunna spela igen med samma spelare men nya tärningskast
     }
 
     //Lagrar och adderar värdet av tärningskasten
     public void addToScore(int newScore) {                      //Efter varje runda ska tärningsslagets summa sparas i score
-        this.score += newScore;                                 //för att kunna summera vad båda tärningskasten ger.
+        score += newScore;                                 //för att kunna summera vad båda tärningskasten ger.
     }
 }

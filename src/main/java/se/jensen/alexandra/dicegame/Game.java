@@ -24,7 +24,7 @@ public class Game {
     //Loop för att starta spelet, spelet körs
     public void gameLoop() {                                                                    //Metoden startar spelet och anropas från Main
         for (int player = 0; player < numPlayers; player++) {                                   //Plockar antalet spelare via rad 11 numPlayers
-            this.setupPlayer(player);                                                           //Antalet som registreras via loopen sparas i variabeln setupPlayer
+            setupPlayer(player);                                                           //Antalet som registreras via loopen sparas i variabeln setupPlayer
         }
 
         String choice;                                                                           //Skapar choice som en variabel - här sätts värdet play eller quit in
@@ -32,16 +32,16 @@ public class Game {
             System.out.println("\n" + "Write play or quit");
             choice = scanner.nextLine();                                                        //sparar inmatat värde från scanner till choice
             if (choice.equalsIgnoreCase("quit")) {                                  //equalsIgnoreCase gör att systemet inte ska låsa sig i quit eller Quit - båda inmatningar ok
-                this.quitGame();                                                                //om inmatning quit - metoden quitGame avslutar spelet
+                quitGame();                                                                //om inmatning quit - metoden quitGame avslutar spelet
                 break;                                                                          //då avslutas loopen och spelet stängs av
             } else if (!choice.equalsIgnoreCase("play")) {                          //om annat än play - felaktigt val och loopen fortsätter fråga om val
                 System.out.println("Invalid choice, try again");
             } else {
                 System.out.println("\n" + "********** Great! Lets play! **********");
                 for (int turn = 0; turn < (numDieThrow * numPlayers); turn++) {                 //loop som kör antalet satta kast * antalet satta spelare (här 4 varv)
-                    this.runTurn(turn % numPlayers);                                     //metoden körs enligt modulo-operator som matematiskt (resten vid division) räknar ut 0/1/0/1 och på så sätt tar fram vilken spelares tur det är
+                    runTurn(turn % numPlayers);                                     //metoden körs enligt modulo-operator som matematiskt (resten vid division) räknar ut 0/1/0/1 och på så sätt tar fram vilken spelares tur det är
                 }
-                this.finalResults();                                                            //efter alla rundor anropas metoden som visar slutresultat
+                finalResults();                                                            //efter alla rundor anropas metoden som visar slutresultat
             }
         }
     }
