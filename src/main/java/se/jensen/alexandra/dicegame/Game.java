@@ -11,17 +11,6 @@ public class Game {
     int numPlayers = players.size();                                                            //Returnerar antalet element i Arraylist (2 i detta fall) för antalet spelare. Det gör att jag lättare kan utöka antalet spelare
     int numDieThrow = 2;
 
-    //Metod för en spelares runda
-    private void runTurn(int player) {
-        Player currentPlayer = players.get(player);                                             //Från ArrayList plockar den 0 eller 1 (eftersom det är två spelare) och vet så vems tur det är
-        System.out.println("\n" + currentPlayer.getFullName() + " - Press enter, to throw the dice"); //getFullName() plockas från Player via den publika metoden i klassen.
-        scanner.nextLine();                                                                     //Inväntar att användaren trycker Enter, för att göra ett aktivt val att slå
-        int score = Dice.roll();                                                                //Tärningen kastas via metoden från Dice, värdet sparas i score variabeln
-        Dice.printDice(score);                                                                  //En ASCII bild visas av en tärning via metoden i Dice klassen
-        currentPlayer.addToScore(score);                                                        //Värdet sparas också till spelarens totala poäng
-        System.out.println("You got: " + score);                                                //Rundans resultat skrivs ut
-    }
-
     //Inmatning och registrering av namn till spelare 1 och 2
     private void setupPlayer(int player) {
         Player currentPlayer = players.get(player);                                             //Funkar på samma sätt som rad 16, hämtar 0 eller 1 från ArrayList
@@ -54,17 +43,18 @@ public class Game {
                 }
                 this.finalResults();                                                            //efter alla rundor anropas metoden som visar slutresultat
             }
-
         }
     }
 
-    //Avsluta spelet
-    private void quitGame() {
-        scanner.close();
-        System.out.println("""
-                
-                Thanks for playing!
-                     Goodbye!""");
+    //Metod för en spelares runda
+    private void runTurn(int player) {
+        Player currentPlayer = players.get(player);                                             //Från ArrayList plockar den 0 eller 1 (eftersom det är två spelare) och vet så vems tur det är
+        System.out.println("\n" + currentPlayer.getFullName() + " - Press enter, to throw the dice"); //getFullName() plockas från Player via den publika metoden i klassen.
+        scanner.nextLine();                                                                     //Inväntar att användaren trycker Enter, för att göra ett aktivt val att slå
+        int score = Dice.roll();                                                                //Tärningen kastas via metoden från Dice, värdet sparas i score variabeln
+        Dice.printDice(score);                                                                  //En ASCII bild visas av en tärning via metoden i Dice klassen
+        currentPlayer.addToScore(score);                                                        //Värdet sparas också till spelarens totala poäng
+        System.out.println("You got: " + score);                                                //Rundans resultat skrivs ut
     }
 
     //Utskrift av slutresultat
@@ -91,5 +81,14 @@ public class Game {
         //Återställer score inför nästa spelomgång
         playerOne.resetScore();
         playerTwo.resetScore();
+    }
+
+    //Avsluta spelet
+    private void quitGame() {
+        scanner.close();
+        System.out.println("""
+                
+                Thanks for playing!
+                     Goodbye!""");
     }
 }
